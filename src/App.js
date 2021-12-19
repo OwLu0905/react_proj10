@@ -27,6 +27,7 @@ function App() {
       />
       <Footer 
         colorStyle={colorStyle}
+        setColorStyle={setColorStyle}
       />
     </div>
   );

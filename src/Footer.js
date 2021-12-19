@@ -1,4 +1,4 @@
-const Footer = ({colorStyle}) => {
+const Footer = ({colorStyle, setColorStyle}) => {
     
     const isColor = (strColor) => {
         var s = new Option().style;
@@ -7,15 +7,15 @@ const Footer = ({colorStyle}) => {
     }
     const colorRender = (colorCheck) => {
         if (!isColor(colorCheck)) {
-            return ;
+            return JSON.stringify("Invalid Color Style")
         } else {
-            return JSON.stringify(colorCheck.toUpperCase());
+            return <font color={colorStyle}>{(colorCheck.toUpperCase())}</font>
         }
     }
     return (
         <footer>
             <h2 >Last Color Style : {`\n`}
-                <font color={colorStyle}>{colorRender(colorStyle)}</font>
+                {colorRender(colorStyle)}
             </h2>
 
             {/* <h2 style={{color:colorStyle}}>
