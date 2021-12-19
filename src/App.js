@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+import {useState} from 'react'
 
 function App() {
+
+  const [colorStyle, setColorStyle] = useState('')  
+  const [colorItem, setColor] = useState('')
+
+  const handleColor = (e) => {
+    e.preventDefault();
+    // console.log(colorItem);
+    setColorStyle(colorItem);
+    setColor('')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Content
+        colorItem={colorItem}
+        setColor={setColor}
+        colorStyle={colorStyle}
+        handleColor={handleColor}
+      />
+      <Footer 
+        colorStyle={colorStyle}
+      />
     </div>
   );
 }
